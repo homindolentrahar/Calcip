@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Calcip</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_description">Find more about your IP</string>
+    <string name="ip_address">Enter your IP Address</string>
+    <string name="netmask_address">Enter your Netmask Address</string>
+    <string name="dummy_ip">192.168.15.30</string>
+    <string name="calculate">Calculate</string>
+    <string name="back_button_desc">Back Button</string>
+    <string name="your_result">Your result is here…</string>
+    <string name="text_network">Network :</string>
+    <string name="text_first_host">First Host :</string>
+    <string name="text_last_host">Last Host :</string>
+    <string name="text_broadcast">Broadcast :</string>
+    <string name="broadcast">Broadcast</string>
+    <string name="last_host">Last Host</string>
+    <string name="first_host">First Host</string>
+    <string name="network">Network</string>
+    <string name="try_again">Try Again</string>
 </resources>

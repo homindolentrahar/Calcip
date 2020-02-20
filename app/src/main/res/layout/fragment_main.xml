@@ -1,8 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".main.fragment.MainFragment">
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/text_app_title"
+        style="@style/TextAppTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@id/text_app_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_app_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppDescriptionStyle"
+        android:layout_marginBottom="@dimen/double_margin"
+        android:text="@string/app_description"
+        app:layout_constraintBottom_toTopOf="@id/form_container"
+        app:layout_constraintEnd_toEndOf="@id/text_app_title"
+        app:layout_constraintStart_toStartOf="@id/text_app_title" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/form_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_ip_container"
+            style="@style/TextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_ip"
+                style="@style/TextInputEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="73dp"
+                android:hint="@string/ip_address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_netmask_container"
+            style="@style/TextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintTop_toBottomOf="@id/edit_ip_container">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_netmask"
+                style="@style/TextInputEditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="73dp"
+                android:hint="@string/netmask_address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_calculate"
+        style="@style/ButtonStyle"
+        android:layout_width="180dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="@dimen/double_margin"
+        android:text="@string/calculate"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/form_container" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

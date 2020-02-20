@@ -1,8 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.fragment.ResultFragment">
+    android:background="@color/colorPrimary">
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".main.fragment.ResultFragment">
+
+        <TextView
+            android:id="@+id/text_your_result"
+            style="@style/TextResultPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/half_margin"
+            android:layout_marginTop="@dimen/margin"
+            android:text="@string/your_result"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_try_again"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/half_margin"
+            android:text="@string/try_again"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@id/text_your_result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_your_result" />
+
+        <TextView
+            android:id="@+id/tv_ip"
+            style="@style/TextResultTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/margin"
+            app:layout_constraintStart_toStartOf="@id/text_your_result"
+            app:layout_constraintTop_toBottomOf="@id/text_your_result"
+            tools:text="192.168.35.70" />
+
+        <TextView
+            android:id="@+id/tv_netmask"
+            style="@style/TextResultSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_ip"
+            app:layout_constraintTop_toBottomOf="@id/tv_ip"
+            tools:text="255.255.255.192" />
+
+        <TextView
+            android:id="@+id/tv_cidr"
+            style="@style/TextResultSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tv_netmask"
+            app:layout_constraintTop_toTopOf="@id/tv_netmask"
+            tools:text="/26" />
+
+        <TextView
+            android:id="@+id/text_network"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_network"
+            app:layout_constraintBottom_toBottomOf="@id/tv_network"
+            app:layout_constraintStart_toStartOf="@id/tv_netmask"
+            app:layout_constraintTop_toTopOf="@id/tv_network" />
+
+        <TextView
+            android:id="@+id/tv_network"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintStart_toEndOf="@id/text_broadcast"
+            app:layout_constraintTop_toBottomOf="@id/tv_netmask"
+            tools:text="192.168.35.64" />
+
+        <TextView
+            android:id="@+id/text_first_host"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_first_host"
+            app:layout_constraintBottom_toBottomOf="@id/tv_first_host"
+            app:layout_constraintStart_toStartOf="@id/text_network"
+            app:layout_constraintTop_toTopOf="@id/tv_first_host" />
+
+        <TextView
+            android:id="@+id/tv_first_host"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_network"
+            app:layout_constraintTop_toBottomOf="@id/tv_network"
+            tools:text="192.168.35.65" />
+
+        <TextView
+            android:id="@+id/text_last_host"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_last_host"
+            app:layout_constraintBottom_toBottomOf="@id/tv_last_host"
+            app:layout_constraintStart_toStartOf="@id/text_first_host"
+            app:layout_constraintTop_toTopOf="@id/tv_last_host" />
+
+        <TextView
+            android:id="@+id/tv_last_host"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_first_host"
+            app:layout_constraintTop_toBottomOf="@id/tv_first_host"
+            tools:text="192.168.35.126" />
+
+        <TextView
+            android:id="@+id/text_broadcast"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_broadcast"
+            app:layout_constraintBottom_toBottomOf="@id/tv_broadcast"
+            app:layout_constraintStart_toStartOf="@id/text_last_host"
+            app:layout_constraintTop_toTopOf="@id/tv_broadcast" />
+
+        <TextView
+            android:id="@+id/tv_broadcast"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/tv_last_host"
+            app:layout_constraintTop_toBottomOf="@id/tv_last_host"
+            tools:text="192.168.35.127" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/column_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            app:layout_constraintEnd_toEndOf="@id/btn_try_again"
+            app:layout_constraintStart_toStartOf="@id/text_broadcast"
+            app:layout_constraintTop_toBottomOf="@id/text_broadcast">
+
+            <TextView
+                android:id="@+id/text_network_column"
+                style="@style/TextResultColumnTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/network"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_first_host_column"
+                style="@style/TextResultColumnTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/first_host"
+                app:layout_constraintEnd_toStartOf="@id/text_last_host_column"
+                app:layout_constraintStart_toEndOf="@id/text_network_column"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_last_host_column"
+                style="@style/TextResultColumnTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_host"
+                app:layout_constraintEnd_toStartOf="@id/text_broadcast_column"
+                app:layout_constraintStart_toEndOf="@id/text_first_host_column"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_broadcast_column"
+                style="@style/TextResultColumnTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/broadcast"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_list_ip"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/text_network_column"
+                tools:listitem="@layout/list_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/progress_loading"
+                style="@style/ProgressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

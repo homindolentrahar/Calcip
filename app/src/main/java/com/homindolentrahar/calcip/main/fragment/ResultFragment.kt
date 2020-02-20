@@ -6,8 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.NavigationUI
 
 import com.homindolentrahar.calcip.R
+import com.homindolentrahar.calcip.model.IPResult
 import dagger.android.support.DaggerFragment
 
 /**
