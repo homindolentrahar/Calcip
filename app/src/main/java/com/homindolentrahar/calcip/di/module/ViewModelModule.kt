@@ -9,4 +9,5 @@ import dagger.Module
 abstract class ViewModelModule {
     @Binds
     abstract fun bindViewModelProviderFactory(factory: ViewModelProviderFactory): ViewModelProvider.Factory
+//    In case you need to inject ViewModel,provide it here with ViewModelKey
 }

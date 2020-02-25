@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -39,6 +39,7 @@
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/colorAccent</item>
         <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
         <item name="boxCornerRadiusTopStart">@dimen/radius</item>
         <item name="boxCornerRadiusTopEnd">@dimen/radius</item>
         <item name="boxCornerRadiusBottomStart">@dimen/radius</item>
@@ -49,9 +50,9 @@
     <style name="TextInputEditStyle">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/poppins_light</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">start </item>
         <item name="android:textSize">20sp</item>
-        <item name="android:inputType">numberDecimal</item>
+        <item name="android:inputType">phone</item>
     </style>
 
     <style name="ButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">

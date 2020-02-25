@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/all_wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -19,9 +20,9 @@
 
     <TextView
         android:id="@+id/text_app_desc"
+        style="@style/TextAppDescriptionStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextAppDescriptionStyle"
         android:layout_marginBottom="@dimen/double_margin"
         android:text="@string/app_description"
         app:layout_constraintBottom_toTopOf="@id/form_container"

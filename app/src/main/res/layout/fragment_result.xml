@@ -61,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
+            android:text="@{@string/cidr_format(item.cidr)}"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_netmask"
             app:layout_constraintTop_toTopOf="@id/tv_netmask"
@@ -81,7 +82,7 @@
             style="@style/TextResultThirdTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin"
+            android:layout_marginStart="@dimen/half_margin"
             android:layout_marginTop="@dimen/margin"
             app:layout_constraintStart_toEndOf="@id/text_broadcast"
             app:layout_constraintTop_toBottomOf="@id/tv_netmask"
@@ -143,6 +144,68 @@
             app:layout_constraintStart_toStartOf="@id/tv_last_host"
             app:layout_constraintTop_toBottomOf="@id/tv_last_host"
             tools:text="192.168.35.127" />
+
+        <TextView
+            android:id="@+id/text_total_subnet"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:text="@string/text_subnet"
+            app:layout_constraintBottom_toBottomOf="@id/tv_total_subnet"
+            app:layout_constraintStart_toEndOf="@id/tv_broadcast"
+            app:layout_constraintTop_toTopOf="@id/tv_total_subnet" />
+
+        <TextView
+            android:id="@+id/tv_total_subnet"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/half_margin"
+            android:text="@{String.valueOf(item.totalSubnet)}"
+            app:layout_constraintStart_toEndOf="@id/text_total_subnet"
+            app:layout_constraintTop_toTopOf="@id/tv_network"
+            tools:text="32" />
+
+        <TextView
+            android:id="@+id/text_total_host"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_host"
+            app:layout_constraintBottom_toBottomOf="@id/tv_total_host"
+            app:layout_constraintStart_toStartOf="@id/text_total_subnet"
+            app:layout_constraintTop_toTopOf="@id/tv_total_host" />
+
+        <TextView
+            android:id="@+id/tv_total_host"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(item.totalValidHost)}"
+            app:layout_constraintStart_toStartOf="@id/tv_total_subnet"
+            app:layout_constraintTop_toBottomOf="@id/tv_total_subnet"
+            tools:text="19208" />
+
+        <TextView
+            android:id="@+id/text_block_subnet"
+            style="@style/TextResultNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_block"
+            app:layout_constraintBottom_toBottomOf="@id/tv_block_subnet"
+            app:layout_constraintStart_toStartOf="@id/text_total_host"
+            app:layout_constraintTop_toTopOf="@id/tv_block_subnet" />
+
+        <TextView
+            android:id="@+id/tv_block_subnet"
+            style="@style/TextResultThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(item.subnetBlock)}"
+            app:layout_constraintStart_toStartOf="@id/tv_total_host"
+            app:layout_constraintTop_toBottomOf="@id/tv_total_host"
+            tools:text="16" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/column_layout"
