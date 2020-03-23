@@ -1,7 +1,7 @@
 # Calcip
 A simple Calculator IPv4
 
-- Dagger2
+- Single Activity
 - Navigation Component
 
 <img src="app/src/main/res/drawable-v24/splash.jpg" alt="Movies" width="200" align="left"/>
