@@ -41,7 +41,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     def lifecycle_version = "2.2.0"
-    def dagger_version = '2.26'
     def nav_version = "2.2.1"
     def recyclerview_version = "1.1.0"
     def material_component_version = "1.1.0"
@@ -49,13 +48,6 @@ dependencies {
 
 //    Lifecycle Component
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-//    Dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-//    Dagger Android
-    implementation "com.google.dagger:dagger-android:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 //    Navigation Component
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"

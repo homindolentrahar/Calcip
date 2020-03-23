@@ -1,10 +1,10 @@
 package com.homindolentrahar.calcip.main
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.homindolentrahar.calcip.R
-import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

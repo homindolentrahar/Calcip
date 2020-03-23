@@ -1,7 +1,6 @@
 package com.homindolentrahar.calcip.main.fragment
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,18 +12,16 @@ import com.homindolentrahar.calcip.R
 import com.homindolentrahar.calcip.adapter.IPAdapter
 import com.homindolentrahar.calcip.model.IPResult
 import com.homindolentrahar.calcip.util.Constants
-import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_result.*
-import kotlin.math.pow
 
 /**
  * A simple [Fragment] subclass.
  */
-class ResultFragment : DaggerFragment() {
+class ResultFragment : Fragment() {
 
     companion object {
         const val EXTRA_IP = "EXTRA_IP"
-        const val EXTRA_NETMASK = "EXTRA_NETMASK"
+        const val EXTRA_CIDR = "EXTRA_CIDR"
     }
 
     private lateinit var adapter: IPAdapter
@@ -46,28 +43,28 @@ class ResultFragment : DaggerFragment() {
         super.onViewCreated(view, savedInstanceState)
 //        Get data from MainFragment
         val ipAddress = arguments?.getString(EXTRA_IP) as String
-        val netmaskAddress = arguments?.getString(EXTRA_NETMASK) as String
+        val cidr = arguments?.getInt(EXTRA_CIDR) as Int
+        val netmaskAddress = Constants.listNetmask[cidr]
 //        RecyclerView setup
         adapter = IPAdapter {
             Snackbar.make(rv_list_ip, it.networkAddress, Snackbar.LENGTH_SHORT).show()
         }
         rv_list_ip.adapter = adapter
 //        Calculate
-        calculate(ipAddress, netmaskAddress)
+        calculate(ipAddress, netmaskAddress,cidr)
 //        Try Again Button
         btn_try_again.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_mainFragment)
         }
     }
 
-    private fun calculate(ipAddress: String, netmaskAddress: String) {
+    private fun calculate(ipAddress: String, netmaskAddress: String,cidr:Int) {
         val splittedIpAddress = ipAddress.split(".").map { it.toInt() }
         val splittedNetmaskAddress = netmaskAddress.split(".").map { it.toInt() }
-        networkAddress = getNetworkAddress(splittedIpAddress, splittedNetmaskAddress)
+        networkAddress = Constants.getNetworkAddress(splittedIpAddress,splittedNetmaskAddress)
         val splittedNetworkAddress = networkAddress.split(".").map { it.toInt() }
-        val cidr = getCidr(convertAddressToBinary(splittedNetmaskAddress))
-        val totalSubnet = 2.0.pow(cidr % 8).toInt()
-        val totalHost = 2.0.pow(32 - cidr).toInt()
+        val totalSubnet = Constants.getTotalSubnet(cidr)
+        val totalHost = Constants.getTotalHost(cidr)
         val subnetBlock = 256 - Constants.listBlock[cidr % 8]
         val hostBlock = cidr.div(8)
 
@@ -90,7 +87,6 @@ class ResultFragment : DaggerFragment() {
 
     }
 
-    @SuppressLint("SetTextI18n")
     private fun populateView(
         ipAddress: String,
         netmaskAddress: String,
@@ -105,10 +101,11 @@ class ResultFragment : DaggerFragment() {
         hostBlock: Int,
         splittedNetworkAddress: List<Int>
     ) {
+        val textCidr = "/$cidr"
         tv_ip.text = ipAddress
         tv_netmask.text = netmaskAddress
         tv_network.text = networkAddress
-        tv_cidr.text = "/$cidr"
+        tv_cidr.text = textCidr
         tv_first_host.text = firstHost
         tv_last_host.text = lastHost
         tv_broadcast.text = broadcast
@@ -207,31 +204,4 @@ class ResultFragment : DaggerFragment() {
         }
 
     }
-
-    private fun getNetworkAddress(ipAddress: List<Int>, netmaskAddress: List<Int>): String {
-        val listNetwork = mutableListOf<Int>()
-
-        for (octate in 0..3) {
-            val network = ipAddress[octate] and netmaskAddress[octate]
-            listNetwork.add(network)
-        }
-
-        return listNetwork.joinToString(".")
-    }
-
-    private fun convertAddressToBinary(address: List<Int>): String {
-        val listBinary = mutableListOf<String>()
-
-        for (octate in 0..3) {
-            val binary = Integer.toBinaryString(address[octate])
-            listBinary.add(binary)
-        }
-
-        return listBinary.joinToString(".")
-    }
-
-    private fun getCidr(binaryAddress: String): Int {
-        return binaryAddress.count { it == '1' }
-    }
-
 }

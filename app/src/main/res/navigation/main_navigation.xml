@@ -17,6 +17,9 @@
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_netmaskFragment"
+            app:destination="@id/netmaskFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -26,11 +29,7 @@
         <action
             android:id="@+id/action_resultFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/mainFragment"
+            app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -45,7 +44,12 @@
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/splashFragment"
+            app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/netmaskFragment"
+        android:name="com.homindolentrahar.calcip.main.fragment.NetmaskFragment"
+        android:label="fragment_netmask"
+        tools:layout="@layout/fragment_netmask" />
 </navigation>

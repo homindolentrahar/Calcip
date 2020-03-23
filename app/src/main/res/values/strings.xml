@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Calcip</string>
     <string name="app_description">Find more about your IP</string>
+    <string name="cidr_description">Find out your CIDR</string>
     <string name="ip_address">IP Address</string>
     <string name="netmask_address">Netmask Address</string>
     <string name="dummy_ip">192.168.15.30</string>
     <string name="calculate">Calculate</string>
+    <string name="find_cidr">Don\'t know your CIDR ?</string>
     <string name="back_button_desc">Back Button</string>
     <string name="your_result">Your result is here…</string>
     <string name="text_network">Network :</string>
@@ -18,12 +20,16 @@
     <string name="try_again">Try Again</string>
     <string name="error_ip_invalid">Your IP Address invalid !</string>
     <string name="error_netmask_invalid">Your Netmask Address invalid !</string>
+    <string name="error_cidr_invalid">Your CIDR invalid !</string>
     <string name="error_ip_empty">Your IP Address empty !</string>
     <string name="error_netmask_empty">Your Netmask Address empty !</string>
+    <string name="error_cidr_empty">Your CIDR empty !</string>
     <string name="text_host">Host :</string>
     <string name="text_subnet">Subnet :</string>
     <string name="text_block">Block :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cidr">CIDR</string>
+    <string name="going_back">Going Back</string>
 </resources>
